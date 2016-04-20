@@ -1,0 +1,11 @@
+# Ignore Play! working directory #
+.settings/
+bin/
+/db
+.eclipse
+/logs/
+/modules
+/project/target
+/project/project
+/target
+.cache*

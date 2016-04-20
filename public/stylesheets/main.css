@@ -1,0 +1,121 @@
+body {
+  padding-top: 55px;
+}
+
+.info {display : none;}
+.error {color : red; }
+.gras { font-weight: bold; }
+
+div.container {
+	width:98%;
+}
+
+div.alert-container{
+	margin-top: 20px;
+}
+.mainContent {    
+    border-bottom: 1px solid #ccc;
+    min-height: 600px;
+}
+
+
+th {font-size:12pt;}
+td {font-size:10pt;}
+
+
+p {padding: 5px;}
+
+div#listeSoumissions {margin: 10px 0px;}
+
+
+.titre-section {
+    color: gray;
+    background-color: #AdDeeb;
+    padding: 5px 5px;
+}
+
+.itemNom{
+    margin: 10px;
+    font-style: italic;
+}
+
+.exp{
+    vertical-align:super;
+    font-size: x-small;
+}
+
+p.desc {
+    font-style: italic;
+}
+
+.resumeTable thead, th {
+    font-size: small;    
+    background-color: transparent;
+}
+.resumeTable th, .resumeTable td{            
+    text-align: center;
+}
+
+td.cen { text-align: center; }
+td.left { text-align: left; }
+td.right {text-align: right; }
+
+th.w2p, td.w2p{
+    width:2%;
+}
+
+th.w6p, td.w6p{
+    width:6%;
+}
+
+th.w10p, td.w10p{
+    width: 10%;
+}
+
+th.w11p, td.w11p{
+    width: 11%;
+}
+
+th.w12p, td.w12p{
+    width: 12%;
+}
+
+th.w18p, td.w18p{
+    width: 18%;
+}
+input.unstyled {
+    border: none;
+}
+input.centered{
+    text-align: center;
+}
+span.error{
+	font-weight: bold;
+	color:#F00;
+}
+
+div#jsGrid { margin-top: 50px; }
+
+div.indented { 
+	padding-left: 50px; 
+	padding-top: 10px;
+}
+
+button.espace {
+	margin: 0px 4px 4px 0px;
+}
+
+.ui-widget {
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 0.9em;
+}
+.ui-widget .ui-widget {
+	font-size: 0.7em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 0.7em;
+}

@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Test for exception
+GET     /test                       controllers.Application.test()
+
+# Javascript router
+GET     /javascriptRoutes.js        controllers.Application.javascriptRoutes()
+
+# Security login
+GET     /login                      controllers.SecurityController.login()
+POST    /authenticate               controllers.SecurityController.authenticate()
+POST    /logout                     controllers.SecurityController.logout()
+
+# Account page
+GET     /moncompte                  controllers.MonCompte.account()
+GET     /moncompte/mp               controllers.MonCompte.pwd()
+POST    /moncompte/mp               controllers.MonCompte.pwdSave()
+
+# User page
+GET     /user                       controllers.UserController.ulist()
+GET     /user/new                   controllers.UserController.newUser()
+GET     /user/:id                   controllers.UserController.edit(id: Int)
+DELETE  /user/:id                   controllers.UserController.remove(id: Int)
+POST    /user/                      controllers.UserController.save()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

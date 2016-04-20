@@ -1,0 +1,47 @@
+@(pwdForm : Form[MonCompte.PasswordChange], userEmail : String)
+
+@import helper._
+
+@stylesheets = {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+}
+ 
+@javascripts = { 
+}
+
+@main("Mon compte", stylesheets, javascripts){
+	<h1>Mon Compte (@userEmail)</h1>
+	<div class="indented">									
+		@helper.form(routes.MonCompte.pwdSave(), 'class -> "form-horizontal") {
+			@CSRF.formField
+			<fieldset>
+				<legend>Changer le mot de passe</legend>
+				@*
+				<div class="form-group">
+					<label for="oldPwd" class="col-sm-2 control-label">Ancien mot de passe:</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" id="oldPwd" placeholder="ancien mot de passe">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="newPwd" class="col-sm-2 control-label">Nouveau mot de passe:</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" id="newPwd" placeholder="nouveau mot de passe">
+					</div>
+				</div>									
+				*@
+				@helper.inputPassword(pwdForm("oldPassword"), '_label -> "Ancien mot de passe:", 'size -> 50)	
+				@helper.inputPassword(pwdForm("newPassword"), '_label -> "Nouveau mot de passe:", 'size -> 50)
+				@helper.inputPassword(pwdForm("newPasswordAgain"), '_label -> "Entrer à nouveau le mot de passe:", 'size -> 50)
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Changer</button>
+						<a class="btn btn-default" href="@routes.MonCompte.account()">Annuler</a>
+					</div>
+				</div>
+				
+			</fieldset>
+		}
+	</div>
+}

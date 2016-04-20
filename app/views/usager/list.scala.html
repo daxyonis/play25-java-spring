@@ -1,0 +1,76 @@
+@(users: List[Usager])
+
+@stylesheets = {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+}
+ 
+@javascripts = { 
+}
+
+@main("Liste des usagers", stylesheets, javascripts){
+	
+	<h2>Administration des usagers</h2>
+	
+	<p class="danger bg-danger">
+	Des données sensibles sont sur cette page : seul un administrateur 
+	qualifié peut y faire des modifications.
+	</p>
+	
+	<table id="userTable" class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Mot de passe</th>
+				<th>Nom complet</th>
+				<th>Niveau de permission</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(user <- users) {
+			<tr>
+				<td class="noprint"><a href="@routes.UserController.edit(user.getId())">
+						<i class="glyphicon glyphicon-pencil"></i></a>						
+				</td>
+				<td>@user.getId()</td>
+				<td>@user.getEmailAddress()</td>
+				<td>
+					@if(user.getShaPassword() != null){
+					*****************
+					}					
+				</td>
+				<td>@user.getFullName()</td>
+				<td>@user.getLevel()</td>
+				<td class="noprint">
+					<a href="" onclick="del('@routes.UserController.remove(user.getId())')">
+					<i class="glyphicon glyphicon-trash"></i></a>
+				</td>				
+			</tr>
+		}
+		</tbody>
+	</table>
+	
+	<a id="nouveauFlex" class="btn btn-default" href="@routes.UserController.newUser()">        
+        <i class="glyphicon glyphicon-plus"></i> Nouvel usager...
+    </a>
+    
+    <script>
+    function del(urlToDelete) {
+    	
+    	if(confirm("Voulez-vous vraiment supprimer cet élément ?")){
+    		$.ajax({
+    			url:      urlToDelete,
+    			type:     'DELETE',
+    			success:  function(results) {
+    				// refresh the page after letting the time to delete
+    				setTimeout(function() {
+    					location.reload(true);
+    					}, 2000);
+    		}
+    		});
+    	}
+    }
+    </script>
+}

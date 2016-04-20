@@ -1,0 +1,53 @@
+@(userForm : Form[Usager])
+
+@import helper._
+
+@stylesheets = {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+}
+ 
+@javascripts = { 
+}
+
+@main("Usager", stylesheets, javascripts){
+
+@if(userForm.hasErrors()){
+    <div class="alert alert-danger"> 
+    <p>Erreurs à corriger lors de l'envoi du formulaire:</p>
+    	<ul>
+    	@for((key, errorList) <- userForm.errors()) {
+    	    @for(err <- errorList){
+    			<li>@key : @err.message()</li>
+    		}
+    	}
+    	</ul>
+    </div>
+    }
+    
+@helper.form(routes.UserController.save(), 'class -> "form-horizontal") {
+				@CSRF.formField
+				
+				<fieldset>					
+				@* Do not add the Id in the form as it is not editable and some problems
+				*  arise when doing New or resending a form with errors
+				*  @helper.inputText(userForm("Id"), '_label -> "Id", 'readonly -> "readonly", 'size -> 50)
+				*@
+				<input type="hidden" value=@userForm("Id").valueOr("") name="id" />			
+				
+				@helper.inputText(userForm("emailAddress"), '_label -> "Email", 'size -> 50)
+				@helper.inputText(userForm("password"), '_label -> "Password", 'size -> 50)								 							    									
+				@helper.inputText(userForm("fullName"), '_label -> "Full name", 'size -> 50)			
+				
+				<label for="level">Permission Level : </label>
+				<input name="level" value=@security.PermissionLevel.GUEST.name() type="radio" >Guest
+				<input name="level" value=@security.PermissionLevel.USER.name() type="radio" >User
+				<input name="level" value=@security.PermissionLevel.VENDOR.name() type="radio" >Vendor
+				<input name="level" value=@security.PermissionLevel.BUYER.name() type="radio" >Buyer
+				<input name="level" value=@security.PermissionLevel.ADMIN.name() type="radio" >Admin				
+				</fieldset>	
+				<p class="text-center">	
+				<input type="submit" class="btn btn-primary" value="Sauvegarder">		
+				<a class="btn" href="@routes.UserController.ulist()">Annuler</a>
+				</p>
+			}
+}

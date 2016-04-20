@@ -1,0 +1,19 @@
+@(message: String)
+
+@stylesheets = {		
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">          
+}
+
+@javascripts = {
+}
+ 
+
+@main("Accueil", stylesheets, javascripts) {
+
+    <h1>Application Play</h1>
+    @if(!message.isEmpty()){
+    	<p class="alert alert-danger">@message</p>
+    }
+
+	<div id="container"></div>
+}

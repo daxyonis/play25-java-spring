@@ -1,0 +1,15 @@
+@(userEmail : String)
+
+@stylesheets = {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+}
+ 
+@javascripts = { 
+}
+
+@main("Mon compte", stylesheets, javascripts){
+	<h1>Mon Compte (@userEmail)</h1>
+	<div class="indented">
+		<a class="btn btn-primary" id="pwdBtn" href="@routes.MonCompte.pwd()">Changer le mot de passe</a>
+	</div>	
+}

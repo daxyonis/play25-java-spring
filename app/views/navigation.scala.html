@@ -1,0 +1,45 @@
+@()
+@import helper._
+
+<div class="navbar navbar-inverse navbar-fixed-top hidden-print" role="navigation">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>	          
+         <a class="navbar-brand" href="@routes.Application.index()">MY BLOG</a>	          	          
+       </div>
+       <div class="collapse navbar-collapse">
+         <ul class="nav navbar-nav">
+           <li class="active"><a href="@routes.Application.index()">Home</a></li>           	           
+           <li><a href="">Link One</a></li> 
+           <li class="dropdown">
+           	  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Posts <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="" id="">All</a></li>
+	            <li><a href="" id="">Search</a></li>
+	          </ul>	        
+           </li>                     
+         </ul>
+         @helper.form(routes.SecurityController.logout(), 'id -> "logoutForm") {
+			@CSRF.formField
+         <ul class="nav navbar-nav navbar-right">  
+         	<li class="dropdown">
+         		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+         			<span class="glyphicon glyphicon-user"></span><span class="caret"></span>
+         		</a>
+         		 <ul class="dropdown-menu" role="menu">
+         		 	<li><a id="disconn" href="#">Déconnexion</a></li>
+           			<li><a href="@routes.MonCompte.account()">Mon compte</a></li>           			
+         		 </ul>
+         	</li>       	
+           <li><a href="" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HELP</a></li>	       	       
+	     </ul>
+	     }
+       </div><!--/.nav-collapse -->
+     </div>
+</div>

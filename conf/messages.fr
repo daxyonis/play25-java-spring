@@ -1,0 +1,55 @@
+# Default messages traduits en français
+# E. Maciejko
+# 12.02.2016
+
+# --- Constraints
+constraint.required=Requis
+constraint.min=Valeur minimale: {0}
+constraint.max=Valeur maximale: {0}
+constraint.minLength=Longueur minimale: {0}
+constraint.maxLength=Longueur maximale: {0}
+constraint.email=Email
+
+# --- Formats
+format.date=Date (''{0}'')
+format.numeric=Numérique
+format.real=Réel
+format.uuid=UUID
+
+# --- Errors
+error.invalid=Valeur invalide
+error.invalid.java.util.Date=Valeur de date invalide
+error.required=Ce champ est requis
+error.number=Valeur numérique attendue
+error.real=Nombre réel attendu
+error.real.precision=Nombre réel avec au plus {0} chiffre(s) incluant{1} décimale(s) attendu
+error.min=Doit être plus grand ou égal à {0}
+error.min.strict=Doit être strictement plus grand que {0}
+error.max=Doit être plus petit ou égal à {0}
+error.max.strict=Doit être strictement plus petit que {0}
+error.minLength=Le nombre min de caractères est {0}
+error.maxLength=Le nombre max de caractères est {0}
+error.email=Adresse email valide requise
+error.pattern=Doit satisfaire le format {0}
+error.date=Date valide requise
+error.uuid=UUI valide requis
+
+error.expected.date=Valeur de Date attendue
+error.expected.date.isoformat=Valeur de Date Iso attendue
+error.expected.time=Valeur de Temps attendue
+error.expected.jodadate.format=Valeur de date Joda attendue
+error.expected.jodatime.format=Valeur de temps Joda attendue
+error.expected.jsarray=Valeur Array attendue
+error.expected.jsboolean=Valeur Boolean attendue
+error.expected.jsnumber=Valeur Number attendue
+error.expected.jsobject=Valeur Object attendue
+error.expected.jsstring=Valeur String attendue
+error.expected.jsnumberorjsstring=Valeur String ou Number attendue
+error.expected.keypathnode=Node value expected
+error.expected.uuid=UUID value expected
+error.expected.validenumvalue=Valid enumeration value expected
+error.expected.enumstring=String value expected
+
+error.path.empty=Empty path
+error.path.missing=Missing path
+error.path.result.multiple=Multiple results for the given path
