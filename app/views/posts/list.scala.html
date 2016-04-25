@@ -1,0 +1,20 @@
+@(posts: List[Post])
+
+@stylesheets = {
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+}
+ 
+@javascripts = { 
+}
+
+@main("My Blog", stylesheets, javascripts){
+	
+	<h1>Eva's Blog</h1>
+	
+	@for(post <- posts) {	
+		<h3>@post.getTitle()</h3>
+		<em>@post.getTimestmp()</em>
+		<p>@post.getText()</p>		
+	}
+}
+	

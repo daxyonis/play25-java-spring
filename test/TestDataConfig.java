@@ -21,10 +21,10 @@ public class TestDataConfig {
 	@Bean
     public DataSource dataSource() {    	
 		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl("jdbc:sqlserver://localhost\\SQLEXPRESS08;databaseName=GroupeBO;");
-        dataSource.setUsername("GBOusager");
-        dataSource.setPassword("$$gboX23L14u07*15");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/myblog");
+        dataSource.setUsername("guest");
+        dataSource.setPassword("og9X679!nS03~6c");
         return dataSource;
     }
     

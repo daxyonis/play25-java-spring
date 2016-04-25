@@ -7,8 +7,10 @@ public class Post{
 	private int no;
 	private Timestamp timestmp;
 	private Usager user;
+	private String title;
 	private String text;
 	private List<String> tags;
+	
 	public int getNo() {
 	    return no;
 	}
@@ -38,6 +40,12 @@ public class Post{
 	}
 	public void setTags(List<String> tags) {
 	    this.tags = tags;
+	}
+	public String getTitle() {
+	    return title;
+	}
+	public void setTitle(String title) {
+	    this.title = title;
 	}
 	
 	
